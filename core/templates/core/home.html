@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bons Deals</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/styles.css' %}">
+</head>
+<body>
+    <div id="main">
+        <h1>Trouvez le Bon Deal</h1>
+        <form method="GET">
+            <input type="text" id="product" name="product" placeholder="Rechercher un produit" value="{{ request.GET.product }}">
+            <input type="submit" value="Rechercher">
+        </form>
+
+        {% if page_obj %}
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Site</th>
+                    <th>Image</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Note</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in page_obj %}
+                <tr>
+                    <td>
+                        {% if product.source == "Jumia" %}
+                            <img src="{% static 'images/jumia_logo.png' %}" alt="Jumia Logo" style="width: 50px;">
+                        {% elif product.source == "BCCShop" %}
+                            <img src="{% static 'images/bccshop_logo.png' %}" alt="BCCShop Logo" style="width: 50px;">
+                        {% elif product.source == "MrGadget" %}
+                            <img src="{% static 'images/mrgadget_logo.png' %}" alt="MrGadget Logo" style="width: 50px;">
+                        {% endif %}
+                    </td>
+                    <td><img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:100px; height:auto;"></td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }} CFA</td>
+                    <td>{{ product.rating }}</td>
+                    <td>
+                        <a href="{{ product.product_url }}" target="_blank">
+                            <button>Acheter</button>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Pagination Controls -->
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?product={{ request.GET.product }}&page={{ page_obj.previous_page_number }}" class="button">Précédent</a>
+            {% endif %}
+
+            <span>Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+                <a href="?product={{ request.GET.product }}&page={{ page_obj.next_page_number }}" class="button">Suivant</a>
+            {% endif %}
+        </div>
+
+        {% else %}
+        <p>Aucun produit trouvé.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

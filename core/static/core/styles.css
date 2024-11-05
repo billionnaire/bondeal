@@ -1,0 +1,115 @@
+* {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        #main {
+            text-align: center;
+            padding-top: 100px;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #2c3e50; /* Bleu foncé moderne */
+            text-align: center;
+        }
+
+        /* Barre de recherche moderne */
+        input[type='text'] {
+            margin-bottom: 20px;
+            border-radius: 30px;
+            padding: 15px;
+            height: 45px;
+            width: 70%;
+            border: none;
+            outline: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type='text']:focus {
+            border: 2px solid #2980b9; /* Bordure bleue moderne */
+        }
+
+        input[type='submit'] {
+            width: 30%;
+            border-radius: 30px;
+            background-color: #2980b9; /* Bleu moderne */
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        input[type='submit']:hover {
+            background-color: #1f6a92;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        /* Tableau moderne */
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-table th, .product-table td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-table th {
+            background-color: #2980b9; /* Bleu moderne */
+            color: white;
+            font-weight: bold;
+        }
+
+        .product-table td {
+            background-color: white;
+            color: #333;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .product-table tr:hover {
+            background-color: #f4f4f4; /* Effet survol moderne */
+        }
+
+        .product-table img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Bouton moderne */
+        .product-table button {
+            background-color: #FF0000; /* Rouge moderne pour les boutons */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 21px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-table button:hover {
+            background-color: #c0392b; /* Rouge foncé pour hover */
+
